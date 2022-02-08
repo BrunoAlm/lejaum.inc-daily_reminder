@@ -53,12 +53,14 @@ class CustomAnimatedLiquidLinearProgressIndicatorState
         height: alturaTela,
         child: LiquidLinearProgressIndicator(
           value: _animationController!.value,
-          valueColor: AlwaysStoppedAnimation(Colors.white.withOpacity(0.9)),
-          backgroundColor: cores.laranjaum,
+          valueColor: AlwaysStoppedAnimation(cores.laranjaum),
+          backgroundColor: cores.quaseWhite,
           direction: Axis.vertical,
           center: Center(
             child: Text(
-              "${percentage.toStringAsFixed(0)}%",
+              percentage < 99.9
+                  ? "${percentage.toStringAsFixed(0)}%"
+                  : "Carregado!",
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 30.0,
